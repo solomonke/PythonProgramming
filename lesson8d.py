@@ -70,7 +70,8 @@ class Account:
     # Ensure the person cannot withdraw if their account is inactive
     # Ensure the account has an initial deposit, e.g. 100
 
-    def withdraw(self, withdrawal_amount):
+    def withdraw(self,):
+        withdrawal_amount = int(input("Enter amount to withdraw: "))
         if withdrawal_amount > self.balance:
             print("Your withdrawal amount exceeds what's in your account")
         elif self.status == "inactive":
@@ -83,8 +84,11 @@ class Account:
             print("Thank you for banking with us!")
 
 
-account1 = Account(100, "54321", "Julie Waithera", "Kiambu Branch", "active")
+account1 = Account(10000, "54321", "Julie Waithera", "Kiambu Branch", "active")
 
 account1.check_balance()
 account1.deposit(20000)
-account1.withdraw(20100)
+account1.withdraw()
+
+
+
