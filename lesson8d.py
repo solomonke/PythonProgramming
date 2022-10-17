@@ -32,7 +32,7 @@
 class Account:
     bank_code = 1000
 
-    def __init__(self, balance, accno, name, branch, status):
+    def __init__(self, balance=100, accno="12345", name="Julie Waithera", branch="Westlands", status="inactive"):
         if balance < 0:
             print("Balance cannot be zero")
         elif len(name) == 0:
@@ -70,7 +70,7 @@ class Account:
     # Ensure the person cannot withdraw if their account is inactive
     # Ensure the account has an initial deposit, e.g. 100
 
-    def withdraw(self,):
+    def withdraw(self, ):
         withdrawal_amount = int(input("Enter amount to withdraw: "))
         if withdrawal_amount > self.balance:
             print("Your withdrawal amount exceeds what's in your account")
@@ -84,11 +84,29 @@ class Account:
             print("Thank you for banking with us!")
 
 
-account1 = Account(10000, "54321", "Julie Waithera", "Kiambu Branch", "active")
+# account1 = Account(10000, "54321", "Julie Waithera", "Kiambu Branch", "active")
+#
+# account1.check_balance()
+# account1.deposit(20000)
+# account1.withdraw()
 
-account1.check_balance()
-account1.deposit(20000)
-account1.withdraw()
+class Loans(Account):
+    def __int__(self, rate="4%", type="Business"):
+        self.rate = rate
+        self.type = type
+
+    def get_loan(self, loan_amount):
+        if self.check_balance() <= 0:
+            print("You must have some balance in your account")
+        elif self.branch != "Westlands":
+            print("Loan only available for Westland Branch customers")
+        else:
+            if self.status == "active":
+                print("Your loan has been approved")
+                print("You have received {}".format(loan_amount))
+            else:
+                print("Please activate your account")
 
 
-
+loan = Loans()
+loan.get_loan(20000)
