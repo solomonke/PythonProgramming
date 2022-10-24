@@ -8,3 +8,10 @@ try:
     file.write("\nI love \nprogramming.")
 finally:
     file.close()
+
+
+
+
+# Python for payment applications
+# MPesa, PayPal, Visa
+
