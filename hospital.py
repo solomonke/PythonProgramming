@@ -3,7 +3,7 @@
 # It had been replaced by web applications, android applications, and IoT
 # We will use control structures: for loops and if conditions
 
-# from hospitalfunctions import insert_patient as patient
+from hospitalfunctions import insert_patient as patient
 
 
 def menu():
@@ -18,12 +18,33 @@ def menu():
     print(text)
 
 
+# from hospitalfunctions import insert_patient as patient
+
+
 def input_menu():
-    menu()
-    str_choice = str(input("Enter your choice: "))
-    if str_choice == "1":
-        from hospitalfunctions import insert_patient as patient
-        patient()
+    while True:
+        menu()
+        str_choice = str(input("Enter your choice: "))
+        if str_choice == "1":
+            from hospitalfunctions import insert_patient as patient, send_sms
+            patient()
+        elif str_choice == "2":
+            from hospitalfunctions import search_patient as search
+            search()
+        elif str_choice == "3":
+            from hospitalfunctions import delete_patient as delete
+            delete()
+        elif str_choice == "4":
+            from hospitalfunctions import update_patient as update
+            update()
+        elif str_choice == "5":
+            from hospitalfunctions import donate
+            donate()
+        elif str_choice == "6":
+            print("Exiting the hospital system.")
+            break
+        else:
+            print("Invalid choice.")
 
 
 input_menu()

@@ -48,7 +48,6 @@
 # OOP --> method overloading, method overriding
 
 
-
 # Safaricom has a platforms for developers called Daraja API Portal
 
 # API
@@ -61,7 +60,7 @@ def mpesa(phone, amount):
     from requests.auth import HTTPBasicAuth
     consumer_key = "GTWADFxIpUfDoNikNGqq1C3023evM6UH"
     consumer_secret = "amFbAoUByPV2rM5A"
-    api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials" # AUTH URL
+    api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"  # AUTH URL
     r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
 
     data = r.json()
@@ -100,5 +99,6 @@ def mpesa(phone, amount):
     response = requests.post(url, json=payload, headers=headers)
     print(response.text)
     print("Please check your phone to complete payment.")
+
 
 mpesa(254728689854, 1)
